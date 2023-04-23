@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-nodeapp-chat-edit
+  labels:
+    app: nodeapp-edit
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodeapp-edit
+  template:
+    metadata:
+      labels:
+        app: nodeapp-edit
+    spec:
+      containers:
+      - name: nodeserver
+        image: thilina9718/nodeapp-edit:latest
+        ports:
+        - containerPort: 8081
